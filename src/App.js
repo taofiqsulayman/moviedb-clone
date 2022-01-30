@@ -1,4 +1,4 @@
-import { Container, TextField } from '@material-ui/core';
+import { ButtonGroup, Container, TextField } from '@material-ui/core';
 import React, {useEffect, useState} from 'react';
 import Footer from './components/Footer';
 import styled from 'styled-components';
@@ -116,11 +116,18 @@ function App() {
           <span> <FaHeart /> </span>
         </Button>
 
+        <div id="moviesbyyear">
+
+        </div>
+
         
 
         </NormalMenu>
 
         <div className="search">
+        
+        <ButtonGroup size="small" aria-label="small outlined button group">
+
         <TextField
           variant='outlined'
           size='small'
@@ -147,6 +154,8 @@ function App() {
           >
         <SearchIcon />
         </Button>
+
+        </ButtonGroup>
         </div>
 
         <Menu />
