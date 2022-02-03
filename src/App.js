@@ -8,10 +8,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import Movie from './components/Movie';
 import Menu from './components/Menu';
-import { FaCompactDisc, FaHeart, FaVideo } from 'react-icons/fa';
-
-
-
+import dropDowns from './components/dropDowns'
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import VideocamIcon from '@material-ui/icons/Videocam';
 
 
 const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -21,7 +21,13 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const SEARCH_API = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
- 
+const TRENDING = "https://api.themoviedb.org/3/trending/all/day?api_key=04c35731a5ee918f014970082a0088b1"
+
+const NOW_PLAYING = "https://api.themoviedb.org/3/movie/now_playing?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&page=1"
+
+const POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&page=1"
+
+
 
 
 function App() {
@@ -52,6 +58,20 @@ function App() {
     getMovies (FEATURED_API);
   }
 
+  const nowPlaying = (e) => {
+    getMovies(NOW_PLAYING);
+  }
+
+  const getTrending = (e) => {
+    getMovies(TRENDING);
+  }
+
+
+
+  const popularMovies = (e) => {
+    getMovies(POPULAR);
+  }
+
   const fetchSearch = (e) => {
     e.preventDefault();
 
@@ -62,6 +82,11 @@ function App() {
     setSearchTerm("");
 
   };
+
+
+  // TO GET MOVIES BY YEAR
+
+
 
   return (
     <div>
@@ -86,39 +111,41 @@ function App() {
         </Button>
 
         <NormalMenu>
-        <Button 
+        <Button
+          onClick={nowPlaying} 
           variant="outlined"
           className="MButton"
           style={{ color: "rgb(255, 136, 0)", backgroundColor: "rgb(6, 6, 6)" , borderStyle: "solid" , borderWidth:1 , borderColor: "rgb(255, 136, 0)", borderRadius: 0, textTransform: 'none', margin: 5
          }}
         >
           <h4>Now Playing</h4>
-          <FaVideo />
+          <VideocamIcon />
+          
         </Button>
 
         <Button
+          onClick={getTrending}
           variant="outlined"
           className="MButton"
           style={{ color: "rgb(255, 136, 0)", backgroundColor: "rgb(6, 6, 6)" , borderStyle: "solid" , borderWidth:1 , borderColor: "rgb(255, 136, 0)", borderRadius: 0, textTransform: 'none', margin: 5
          }}
         >
-          <h4>On Media</h4>
-          <FaCompactDisc />
+          <h4>Trending</h4>
+          <WhatshotIcon />
         </Button>
           
         <Button
+          onClick={popularMovies}
           variant="outlined"
           className="mButton"
           style={{ color: "rgb(255, 136, 0)", backgroundColor: "rgb(6, 6, 6)" , borderStyle: "solid" , borderWidth:1 , borderColor: "rgb(255, 136, 0)", borderRadius: 0, textTransform: 'none', margin: 5
          }}
         >
-          <h4>Favorites</h4>
-          <span> <FaHeart /> </span>
+          <h4>Popular Movies</h4>
+          <StarBorderIcon />
         </Button>
 
-        <div id="moviesbyyear">
-
-        </div>
+        <dropDowns />
 
         
 
@@ -135,10 +162,10 @@ function App() {
           className="searchBox"
           value={searchTerm}
           onChange={handleChange}
+          onSubmit={fetchSearch}
         />
 
         <Button
-          // onClick={fSearch}
           variant="outlined"
           size='large'
           style={{ color: "rgb(255, 136, 0)", backgroundColor: "rgb(6, 6, 6)" , borderStyle: "solid" , borderWidth:1 , borderColor: "rgb(255, 136, 0)", borderRadius: 0 }}
