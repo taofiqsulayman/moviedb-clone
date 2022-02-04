@@ -43,7 +43,7 @@ const RightMenu = styled.div`
   display: flex;
   align-item: center;
 
-  a {
+  p {
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 10px;
