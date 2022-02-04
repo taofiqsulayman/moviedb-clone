@@ -27,11 +27,8 @@ const Menu = () => {
           <CustomClose onClick={()=>setBurgerStatus(false)} />
         </CloseWrapper>
         
-        <li><a href='#'>Existing Inventory</a></li>
-        <li><a href='#'>Used Inventory</a></li>
-        <li><a href='#'>Trade-in</a></li>
-        <li><a href='#'>Cybertruck</a></li>
-        <li><a href='#'>Roadster</a></li>
+        <li><a href='#'>Use A Bigger Screen for Better Experience</a></li>
+
       </BurgerNav>
     </div>
   )
@@ -50,6 +47,7 @@ const RightMenu = styled.div`
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 10px;
+    color: rgb(255, 136, 0);
   }
 
   @media (min-width: 768px) {

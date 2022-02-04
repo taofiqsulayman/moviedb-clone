@@ -43,7 +43,7 @@ const Footer = () => {
         
         <div className="footernav">
           <div className="bottomnavtxt">
-          <h3> Now playing in theatres</h3>
+          <h3 id="footertext"> </h3>
           </div>
           <div className="bottomnavarrows" 
           // style={{ textAlign: "center", justifyItems:"center", alignItems: "middle" }} 
