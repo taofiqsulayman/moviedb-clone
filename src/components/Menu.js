@@ -27,7 +27,7 @@ const Menu = () => {
           <CustomClose onClick={()=>setBurgerStatus(false)} />
         </CloseWrapper>
         
-        <li><a href='#'>Use A Bigger Screen for Better Experience</a></li>
+        <li><p>Use A Bigger Screen for Better Experience</p></li>
 
       </BurgerNav>
     </div>
