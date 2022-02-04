@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { useEffect } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -55,6 +55,7 @@ const Footer = () => {
                   label="Go To Bottom"
                   // icon={<ArrowDownwardIcon />}
                   icon={ <FaArrowCircleDown size={30} />}
+                  onClick={() => window.scrollTo({ left: 0, top: document.body.scrollHeight })}
                 />
                 <BottomNavigationAction
                   style={{ color: "rgb(255, 136, 0)", backgroundColor: "rgb(85, 85, 85)", paddingLeft: 0 }}
